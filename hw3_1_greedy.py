@@ -13,32 +13,7 @@ reward[2] = np.random.normal(2, 1)
 reward[3] = np.random.normal(2, 2)
 reward[4] = np.random.normal(1.75, 10)
 global q
-#initialize with high value of q
 
-#print q
-
-#iterate q values
-# def iterate_q(q):
-# 	for i in range(0,5):
-# 		q_next = q[i] + step_size*(reward[i] - q[i])
-# 		q[i] = q_next
-# #	print q
-# iterate_q(q)
-
-#calculate all probabilites
-
-# def probability(q):
-# 	#iterate_q(q)
-# 	for i in range(0,5):
-# 			for j in range(0,5):
-# 				prob[j] = max(q[i])
-		 
-	
-# 	print prob
-#probability(q)
-
-#take the element with maximum one
-#def maximum_softmax():
 epoch = 0
 q = np.zeros(shape = (5,1))
 q[0] = 50
@@ -48,9 +23,10 @@ q[3] = 50
 q[4] = 50
 while epoch <= 9:	
 	print ("GREEDY ALGO")
-	for i in range(0,5):
-		for j in range(0,5):
-			prob[j] = max(q[i])
+
+ 	for i in range(0,5):
+ 			
+ 		prob[i] = max(q[i])
 	print prob
 	position = prob.argmax()
 	print position
@@ -64,13 +40,3 @@ while epoch <= 9:
 	
 
 	epoch = epoch + 1 
-# maximum_softmax()
-
-
-# #again take max of values
-# epoch = 0
-# while epoch <= 9:
-	
-# 	print ("SOFTMAX ALGO")
-# 	maximum_softmax()
-# 	epoch = epoch + 1 
