@@ -58,6 +58,7 @@ def maximum_softmax():
 	print new_iterate
 
 	q[position] = new_iterate
+	#print prob
 	print q
 maximum_softmax()
 
