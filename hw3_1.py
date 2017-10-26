@@ -7,11 +7,11 @@ sum_q = 0
 exp_q = np.zeros(shape = (5,1))
 prob = np.zeros(shape = (5,1))
 reward = np.zeros(shape = (5,1))
-reward[0] = 5
-reward[1] = 4
-reward[2] = 3
-reward[3] = 7
-reward[4] = 2
+reward[0] = np.random.normal(1, 5)
+reward[1] = np.random.normal(1.5, 1)
+reward[2] = np.random.normal(2, 1)
+reward[3] = np.random.normal(2, 2)
+reward[4] = np.random.normal(1.75, 10)
 #initialize with high value of q
 q = np.zeros(shape = (5,1))
 q[0] = 50
@@ -26,13 +26,13 @@ def iterate_q(q):
 	for i in range(0,5):
 		q_next = q[i] + step_size*(reward[i] - q[i])
 		q[i] = q_next
-	print q
-#iterate_q(q)
+#	print q
+iterate_q(q)
 
 #calculate all probabilites
 
 def probability(q):
-	iterate_q(q)
+	#iterate_q(q)
 	for i in range(0,5):
 		exp_q[i] = math.exp(q[i]/temp)
 #		exp_q[i] = np.array(exp_q, dtype = np.float64)
@@ -45,14 +45,27 @@ def probability(q):
 		prob[j] = exp_q[j]
 		prob[j] = prob[j]/sum_q
 #	print prob
-probability(q)
+#probability(q)
 
 #take the element with maximum one
-position = prob.argmax()
-print position
-#iterate the value of this
-for position in q:
-	new_iterate = q[position] + step_size*int(reward[position] - q[position])
-	q[position] = new_iterate
+def maximum_softmax():
+	probability(q)
+	position = prob.argmax()
+	print position
 
-print q[position]
+	#iterate the value of this
+	new_iterate = (reward[position]-q[position])/2 + q[position]
+	print new_iterate
+
+	q[position] = new_iterate
+	print q
+maximum_softmax()
+
+
+#again take max of values
+epoch = 0
+while epoch <= 9:
+	
+	print ("SOFTMAX ALGO")
+	maximum_softmax()
+	epoch = epoch + 1 
