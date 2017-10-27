@@ -33,7 +33,7 @@ iterate_q(q)
 
 def probability(q):
 	#iterate_q(q)
-	for i in range(0,5):
+	for i in range(0,len(q)):
 		exp_q[i] = math.exp(q[i]/temp)
 #		exp_q[i] = np.array(exp_q, dtype = np.float64)
 #		print exp_q[i]

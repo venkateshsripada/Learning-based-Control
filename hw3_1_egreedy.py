@@ -1,8 +1,11 @@
 import numpy as np
 import math
 import random
+from random import random
+from random import sample
 
 temp = 100
+x = 0.5
 step_size = 0.5
 sum_q = 0
 exp_q = np.zeros(shape = (5,1))
@@ -26,11 +29,12 @@ while epoch <= 9:
 	print ("EGREEDY ALGO")
 
  	for i in range(0,5):
- 		if prob[i] > random(0,1):
+ 		if x > random():
 
  			prob[i] = max(q[i])
  		else:
- 			prob[i] = random(q[i]) 
+ 			r = np.random.randint(0, 5)
+ 			prob[i] = q[r] 
 	print prob
 	position = prob.argmax()
 	print position
@@ -42,5 +46,4 @@ while epoch <= 9:
 	q[position] = new_iterate
 	print q
 	
-
 	epoch = epoch + 1 
