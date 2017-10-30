@@ -14,14 +14,9 @@ reward = np.zeros(shape = (5,10))
 reward[reward == 0] = -1
 reward[3,9] = 100
 print world
-<<<<<<< HEAD
-#TODO: INITIALIZE STATES AND ASSIGN IT TO WORLD
-state = np.array(shape = (5,10))
-=======
 #TODO INITIALIZE STATES AND ASSIGN IT TO WORLD
 state = np.empty([5,10])
 #state[i,j] = state[3][5]
->>>>>>> 234a6dd3a00127ddfa9e59292862a05856fef030
 i = np.random.randint(0,5)
 j = np.random.randint(0,10)
 # for i  in range(0,4):
@@ -69,7 +64,7 @@ def go_up():
 	world[i,j] = world[i-1,j]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	#print u
 
 
@@ -79,7 +74,7 @@ def go_right():
 	world[i,j] = world[i,j+1]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	
 	#print r
 
@@ -89,7 +84,7 @@ def go_down():
 	world[i,j] = world[i+1,j]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	#print d
 
 def go_left():
@@ -98,7 +93,7 @@ def go_left():
 	world[i,j] = world[i,j-1]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	#print l
 
 def stay():
@@ -107,11 +102,11 @@ def stay():
 	world[i,j] = world[i,j]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	#print s
 
 
-def motion():	
+def motion_soft():	
 	if go_up() > (go_right() and go_down() and go_left() and stay()):
 		state[i,j] = state[i-1,j]
 	elif go_right() > (go_up() and go_down() and go_left() and stay()):
@@ -126,7 +121,7 @@ def motion():
 	print state
 epoch = 0
 while epoch <= 9:
-	motion()
+	motion_soft()
 	epoch = epoch + 1
 # new_iterate = (reward[position]-q[position])/2 + q[position]
 # print new_iterate

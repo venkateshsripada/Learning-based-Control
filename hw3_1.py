@@ -1,5 +1,7 @@
 import numpy as np
 import math
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
 
 temp = 100
 step_size = 0.5
@@ -60,13 +62,15 @@ def maximum_softmax():
 	q[position] = new_iterate
 	#print prob
 	print q
+	print "reward", max(reward)
 maximum_softmax()
 
 
 #again take max of values
 epoch = 0
-while epoch <= 9:
+while epoch <= 99:
 	
 	print ("SOFTMAX ALGO")
 	maximum_softmax()
+	
 	epoch = epoch + 1 
