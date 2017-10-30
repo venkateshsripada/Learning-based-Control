@@ -14,7 +14,7 @@ reward = np.zeros(shape = (5,10))
 reward[reward == 0] = -1
 reward[3,9] = 100
 print world
-#TODO INITIALIZE STATES AND ASSIGN IT TO WORLD
+#TODO: INITIALIZE STATES AND ASSIGN IT TO WORLD
 state = np.array(shape = (5,10))
 i = np.random.randint(0,5)
 j = np.random.randint(0,10)
