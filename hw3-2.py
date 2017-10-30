@@ -64,7 +64,7 @@ def go_up():
 	world[i,j] = world[i-1,j]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	#print u
 
 
@@ -74,7 +74,7 @@ def go_right():
 	world[i,j] = world[i,j+1]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	
 	#print r
 
@@ -84,7 +84,7 @@ def go_down():
 	world[i,j] = world[i+1,j]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	#print d
 
 def go_left():
@@ -93,7 +93,7 @@ def go_left():
 	world[i,j] = world[i,j-1]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	#print l
 
 def stay():
@@ -102,11 +102,11 @@ def stay():
 	world[i,j] = world[i,j]
 	world[i,j] = world[i][j] + reward[i][j]
 	
-	probability(world)
+	#probability(world)
 	#print s
 
 
-def motion():	
+def motion_soft():	
 	if go_up() > (go_right() and go_down() and go_left() and stay()):
 		state[i,j] = state[i-1,j]
 	elif go_right() > (go_up() and go_down() and go_left() and stay()):
@@ -121,7 +121,7 @@ def motion():
 	print state
 epoch = 0
 while epoch <= 9:
-	motion()
+	motion_soft()
 	epoch = epoch + 1
 # new_iterate = (reward[position]-q[position])/2 + q[position]
 # print new_iterate
