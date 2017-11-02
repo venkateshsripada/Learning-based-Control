@@ -68,7 +68,7 @@ maximum_softmax()
 
 #again take max of values
 epoch = 0
-while epoch <= 99:
+while epoch <= 999:
 	
 	print ("SOFTMAX ALGO")
 	maximum_softmax()

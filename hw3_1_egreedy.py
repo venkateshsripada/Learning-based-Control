@@ -25,7 +25,7 @@ q[1] = 50
 q[2] = 50
 q[3] = 50
 q[4] = 50
-while epoch <= 9:	
+while epoch <= 99:	
 	print ("EGREEDY ALGO")
 
  	for i in range(0,5):
@@ -45,5 +45,6 @@ while epoch <= 9:
 
 	q[position] = new_iterate
 	print q
+	print "reward", max(reward)
 	
 	epoch = epoch + 1 

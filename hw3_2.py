@@ -14,14 +14,12 @@ reward = np.zeros(shape = (5,10))
 reward[reward == 0] = -1
 reward[3,9] = 100
 print world
-<<<<<<< HEAD
-#TODO: INITIALIZE STATES AND ASSIGN IT TO WORLD
-state = np.array(shape = (5,10))
-=======
+
+
 #TODO INITIALIZE STATES AND ASSIGN IT TO WORLD
 state = np.empty([5,10])
 #state[i,j] = state[3][5]
->>>>>>> 234a6dd3a00127ddfa9e59292862a05856fef030
+
 i = np.random.randint(0,5)
 j = np.random.randint(0,10)
 # for i  in range(0,4):
